@@ -22,6 +22,7 @@
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>Consulta de CEP | Loyfus</title>
 </head>
 <body>
@@ -37,40 +38,6 @@
             <p class="cep-des" id="cep-des">resultado...</p>
     
         </div>
-        
-    <script type="text/javascript">
-
-        let descricao = document.querySelector(".cep-des")
-
-
-        function consulta() {
-            let cep = document.querySelector('#cep').value;
-                if (cep.length !== 9) {
-                    descricao.textContent= "CEP invalido"
-                    return;
-                }
-
-
-            let url = `https://viacep.com.br/ws/${cep}/json/`;
-
-            fetch(url).then(function(response){
-                response.json().then(function(data){
-                    console.log (data);
-                    resultado(data);
-                });
-            });
-        }
-
-        function resultado(dados) {
-            let descricao = document.querySelector(".cep-des");
-
-            descricao.innerHTML =`Endereço: ${dados.logradouro}</br>
-                                    Bairro: ${dados.bairro}</br>
-                                    Cidade: ${dados.localidade}</br>
-                                    UF: ${dados.uf}</br>`
-        }
-
-    </script>
     
 </body>
 </html>
