@@ -4,7 +4,7 @@
         function consulta() {
             let cep = document.querySelector('#cep').value;
                 if (cep.length !== 9) {
-                    descricao.textContent= "CEP invalido"
+                    descricao.textContent= "CEP inválido"
                     return;
                 }
 
