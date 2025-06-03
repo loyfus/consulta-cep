@@ -13,7 +13,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -22,22 +22,20 @@
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="style.css">
-    <title>Consulta de CEP | Loyfus</title>
+    <title>Consulta de CEP</title>
 </head>
 <body>
 
-        <div class="cep-div">
-    
-            <h1>Consulta de CEP</h1>
-        <div class="pesquisa">
-            <input id="cep" type="text" placeholder="Digite seu CEP">
-            
-            <button onclick="consulta()">Buscar</button>
-        </div>
-            <p class="cep-des" id="cep-des">resultado...</p>
-    
-        </div>
-    
+    <main class="container">
+        <h1>Consulta de CEP</h1>
+        <form class="search" onsubmit="consulta(); return false;">
+            <label for="cep" class="sr-only">CEP</label>
+            <input id="cep" type="text" placeholder="Digite seu CEP" inputmode="numeric" pattern="\d{8}">
+            <button type="submit">Buscar</button>
+        </form>
+        <p class="cep-des" id="cep-des" aria-live="polite">resultado...</p>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
