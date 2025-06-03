@@ -15,12 +15,12 @@ function consulta() {
 
     const url = `https://viacep.com.br/ws/${cep}/json/`;
 
-    fetch(url).then(function (response) {
-        response.json().then(function (data) {
-            console.log(data);
-            resultado(data);
+    fetch(url)
+        .then((response) => response.json())
+        .then((data) => resultado(data))
+        .catch(() => {
+            descricao.textContent = 'Erro na consulta';
         });
-    });
 }
 
 function resultado(dados) {
@@ -31,8 +31,8 @@ function resultado(dados) {
         return;
     }
 
-    descricao.innerHTML = `Endereço: ${dados.logradouro}</br>
-                            Bairro: ${dados.bairro}</br>
-                            Cidade: ${dados.localidade}</br>
-                            UF: ${dados.uf}</br>`;
+    descricao.innerHTML = `Endereço: ${dados.logradouro}<br>
+                            Bairro: ${dados.bairro}<br>
+                            Cidade: ${dados.localidade}<br>
+                            UF: ${dados.uf}`;
 }
